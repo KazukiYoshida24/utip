@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,10 +36,13 @@ class _UTipState extends State<UTip> {
       appBar: AppBar(
         title: const Text('UTip'),
       ),
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
         children: [
-          Text("Hello there"),
+          Container(
+              padding: const EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(10)),
+              child: const Text("Total per person")),
         ],
       ),
     );
