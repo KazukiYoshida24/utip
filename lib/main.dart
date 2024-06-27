@@ -41,8 +41,14 @@ class _UTipState extends State<UTip> {
           Container(
               padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-              child: const Text("Total per person")),
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(10)),
+              child: const Column(
+                children: [
+                  Text("Total per person"),
+                  Text("\$23.89"),
+                ],
+              )),
         ],
       ),
     );
