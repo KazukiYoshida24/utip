@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // print(context.widget);
     return MaterialApp(
       title: 'UTip',
       theme: ThemeData(
@@ -32,21 +33,34 @@ class UTip extends StatefulWidget {
 class _UTipState extends State<UTip> {
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context); //下で何回もTheme.of(context)という必要がない
+    //Add style
+    final style = theme.textTheme.titleMedium!.copyWith(
+      color: theme.colorScheme.onPrimary,
+      fontWeight: FontWeight.bold,
+    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('UTip'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
               padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
-                  color: Colors.deepPurple,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                   borderRadius: BorderRadius.circular(10)),
-              child: const Column(
+              child: Column(
                 children: [
-                  Text("Total per person"),
-                  Text("\$23.89"),
+                  Text("Total per person", style: style),
+                  Text(
+                    "\$23.89",
+                    style: style.copyWith(
+                      color: theme.colorScheme.onPrimary,
+                      fontSize: theme.textTheme.displaySmall?.fontSize,
+                    ),
+                  ),
                 ],
               )),
         ],
