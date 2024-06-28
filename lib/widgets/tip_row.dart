@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+class TipRow extends StatelessWidget {
+  const TipRow({
+    super.key,
+    required this.theme,
+    required this.totalT,
+  });
+
+  final ThemeData theme;
+  final double totalT;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Tip',
+          style: theme.textTheme.titleMedium,
+        ),
+        // const SizedBox(width: 8), // スペースを入れるためのSizedBoxを追加
+        Text(
+          "\$${totalT.toStringAsFixed(2)}",
+          style: theme.textTheme.titleMedium,
+        ),
+      ],
+    );
+  }
+}
